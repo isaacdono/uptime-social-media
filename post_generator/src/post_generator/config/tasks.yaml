@@ -1,0 +1,47 @@
+# TASKS: Uma esteira de produção em 3 passos.
+
+tasks:
+  criacao_de_conteudo:
+    description: |
+      Para a persona '{persona_nome}' na categoria '{categoria_escolhida}', crie o conteúdo de um post.
+      Sua resposta deve ser um único objeto YAML contendo:
+      - id_post: Um UUID v4 real e único.
+      - id_persona: '{persona_id}'
+      - categoria: '{categoria_escolhida}'
+      - tipo_media: "imagem"
+      - url_media: "PENDENTE_BUSCA_DE_IMAGEM"  # Use exatamente este placeholder.
+      - descricao: O texto do post, escrito no estilo da persona.
+      - timestamp: Um timestamp ISO 8601 válido para a data atual ({data_atual}).
+    expected_output: "Um único bloco de texto YAML contendo os dados do post com a URL da imagem como 'PENDENTE_BUSCA_DE_IMAGEM'."
+  
+  busca_de_imagem_especifica:
+    description: |
+      Analise o rascunho YAML da tarefa anterior ({criacao_de_conteudo.output}).
+      Use o texto do campo 'descricao' para realizar uma busca de imagem altamente relevante usando sua ferramenta.
+    expected_output: "Apenas a URL da imagem encontrada. Nada mais."
+
+  verificacao_e_montagem_final:
+      description: |
+        Sua missão é montar o bloco de conteúdo final em MARKDOWN. Você tem duas fontes de informação:
+        1. O rascunho YAML da tarefa 'criacao_de_conteudo': {criacao_de_conteudo.output}
+        2. A URL da imagem da tarefa 'busca_de_imagem_especifica': {busca_de_imagem_especifica.output}
+
+        Execute os seguintes passos:
+        1. Pegue o rascunho YAML e a URL da imagem.
+        2. Combine as informações.
+        3. CRIE UM BLOCO DE MARKDOWN para um único post. Use o formato exato do exemplo abaixo.
+        NÃO adicione nenhum texto extra, como "Aqui está o post:". Apenas o bloco de Markdown.
+
+      expected_output: |
+        Um único bloco de texto em Markdown, sem texto extra, formatado exatamente como o exemplo abaixo.
+
+        ## Post
+        - **Id Post:** "uuid-aqui"
+        - **Id Persona:** "id-da-persona-aqui"
+        - **Categoria:** "Categoria do post"
+        - **Tipo Media:** "imagem"
+        - **Url Media:** "url-real-da-imagem.com/..."
+        **Descricao:**
+        > O texto do post, que pode ter
+        > múltiplas linhas, formatado como citação.
+        - **Timestamp:** "timestamp-iso-aqui"
