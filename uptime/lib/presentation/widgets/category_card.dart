@@ -27,7 +27,7 @@ class CategoryCard extends StatelessWidget {
               : null,
         ),
         child: ClipRRect(
-          borderRadius: BorderRadius.circular(13),
+          borderRadius: BorderRadius.circular(16),
           child: Stack(
             fit: StackFit.expand,
             children: [
@@ -57,19 +57,27 @@ class CategoryCard extends StatelessWidget {
                 bottom: 8,
                 left: 8,
                 right: 8,
-                child: Text(
-                  topic.name,
-                  style: const TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 16,
-                    shadows: [
-                      Shadow(
-                        blurRadius: 4.0,
-                        color: Colors.black,
-                        offset: Offset(1.0, 1.0),
-                      ),
-                    ],
+                child: Container(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 0,
+                    vertical: 2,
+                  ),
+                  decoration: BoxDecoration(
+                    color: Colors.white, // Branco com um pouco de transparência
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: Text(
+                    topic.name,
+                    style: const TextStyle(
+                      color: Colors.black87, // Cor do texto dentro do bloquinho
+                      fontWeight: FontWeight.bold,
+                      fontSize: 16,
+                      shadows: [
+                        Shadow(blurRadius: 0.5, color: Colors.grey),
+                      ], // Opcional: pequena sombra
+                    ),
+                    textAlign: TextAlign
+                        .center, // Opcional: centralizar o texto dentro do bloquinho
                   ),
                 ),
               ),
