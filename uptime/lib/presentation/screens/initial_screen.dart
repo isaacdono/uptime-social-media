@@ -5,6 +5,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../blocs/setup_cubic.dart';
 import '../blocs/setup_state.dart';
 import '../widgets/category_card.dart';
+import 'feed_screen.dart';
+import '../../data/models/post_model.dart';
 // Importe seus widgets e o cubit/state aqui
 
 class InitialScreen extends StatelessWidget {
@@ -153,8 +155,13 @@ class InitialScreen extends StatelessWidget {
             ),
             child: ElevatedButton(
               onPressed: () {
-                // Navegar para a próxima tela com os dados do estado
-              },
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const FeedScreen(),
+                            ),
+                          );
+                        },
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.transparent,
                 shadowColor: Colors.transparent,
