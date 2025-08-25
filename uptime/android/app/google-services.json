@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "650426616015",
+    "project_id": "uptime-2f923",
+    "storage_bucket": "uptime-2f923.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:650426616015:android:9f5f3606e8cca31e5acfba",
+        "android_client_info": {
+          "package_name": "com.example.uptime"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCgk6md1zijBEXJB8L09I9yA1T4lm_cjl0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
